@@ -1,30 +1,73 @@
+# Rock Paper Scissors Game
+
 ## Overview
-This is a simple javascript code to be run on the console. The game lasts for 5 round where the user will be playing against the computer.
+This project is a simple implementation of the classic **Rock Paper Scissors** game. The game is played for 5 rounds, where the user competes against the computer. The user selects their choice by clicking one of the buttons (`Rock`, `Paper`, or `Scissors`), and the computer randomly generates its choice. The result of each round, along with the current scores, is displayed on the webpage.
 
-## Functions
+---
 
-### 1. `getComputerChoice()`
-- **Description**: Generates a random choice for the computer: "rock", "paper", or "scissors".
-- **Logic**:
-  - A random number between 0 and 1 is generated using `Math.random()`.
-  - The number is scaled and floored to produce an integer between 0 and 2.
-  - Based on the integer value:
-    - `0` corresponds to "rock".
-    - `1` corresponds to "paper".
-    - `2` corresponds to "scissors".
-- **Returns**: A string representing the computer's choice ("rock", "paper", or "scissors").
+## Project Structure
+The project consists of three main files:
+1. **`index.html`**: The HTML structure of the game.
+2. **`styles.css`**: The CSS file for styling the game interface.
+3. **`javascript.js`**: The JavaScript file containing the game logic.
 
-  ### 2. `getHumanChoice()`
-- **Description**: Prompts the user to input their choice of "rock", "paper", or "scissors".
-- **Logic**:
-  - The user is prompted to enter their choice.
-  - The input is converted to lowercase for consistency.
-  - If the input is valid ("rock", "paper", or "scissors"), it is returned.
-  - If the input is invalid, an alert is shown, and the function recursively calls itself to prompt the user again.
-- **Returns**: A string representing the human's choice ("rock", "paper", or "scissors").
+---
 
-## Example Execution
-1. The computer randomly selects "rock", "paper", or "scissors".
-2. The user is prompted to input their choice.
-3. This process repeats for 5 rounds.
-4. The winner is determined at the end of the 5 rounds.
+## File Details
+
+### 1. `index.html`
+- **Purpose**: Provides the structure of the webpage.
+- **Key Elements**:
+  - A `<p>` element with the rules of the game.
+  - A `<div>` container with three buttons (`Rock`, `Paper`, `Scissors`) for user input.
+  - An unordered list (`<ul>`) to display the results of each round.
+
+### 2. `styles.css`
+- **Purpose**: Styles the game interface for a clean and user-friendly design.
+- **Key Styles**:
+  - `.container`: Centers the game elements vertically and horizontally.
+  - `button`: Styles the buttons with padding, green background, and rounded corners.
+  - `ul` and `li`: Formats the result list with proper alignment and spacing.
+  - `#rules`: Highlights the game rules with a light green background.
+
+### 3. `javascript.js`
+- **Purpose**: Implements the game logic and handles user interactions.
+- **Key Functions**:
+  - `getComputerChoice()`: Randomly generates the computer's choice (`rock`, `paper`, or `scissors`).
+  - `getHumanChoice()`: Waits for the user to click a button and resolves the user's choice.
+  - `display_result(res, a, b, compscore, humanscore)`: Displays the result of each round and the current scores on the webpage.
+  - `playGame()`: The main game loop that runs for 5 rounds, compares choices, updates scores, and calls `display_result()`.
+
+---
+
+## How It Works
+1. **Game Start**:
+   - The user clicks one of the buttons (`Rock`, `Paper`, or `Scissors`).
+   - The computer randomly selects its choice.
+
+2. **Round Result**:
+   - The user's choice and the computer's choice are compared:
+     - If both choices are the same, it's a tie.
+     - Otherwise, the winner is determined based on the rules of Rock Paper Scissors:
+       - Rock beats Scissors.
+       - Scissors beats Paper.
+       - Paper beats Rock.
+   - The result of the round is displayed on the webpage, along with the updated scores.
+
+3. **Game End**:
+   - After 5 rounds, the game ends. The final scores are displayed, and the player with the higher score is the winner.
+
+---
+
+## Features
+- **Interactive Buttons**: Users can select their choice by clicking buttons.
+- **Dynamic Score Display**: The current scores are updated and displayed after each round.
+- **Responsive Design**: The game interface is styled for a clean and user-friendly experience.
+
+---
+
+## How to Run
+1. Open the `index.html` file in a web browser.
+2. Read the rules displayed at the top of the page.
+3. Click one of the buttons (`Rock`, `Paper`, or `Scissors`) to play.
+4. View the results and scores displayed below the buttons after each round.
