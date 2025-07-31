@@ -25,6 +25,26 @@ function getHumanChoice() {
     });
 }
 
+function display_result(res, a, b, compscore, humanscore) {
+    const lst = document.querySelector("ul");
+    const li = document.createElement("li");
+
+    if (res === "tie") {
+        li.textContent = "Computer chose " + a + " and you chose " + b + ". It's a tie!";
+    } else if (res === "comp") {
+        li.textContent = "Computer chose " + a + " and you chose " + b + ". Computer wins this round!";
+    } else {
+        li.textContent = "Computer chose " + a + " and you chose " + b + ". You win this round!";
+    }
+
+    // Add the round score to the message
+    const score = document.createElement("p");
+    score.textContent = `Current Score - Computer: ${compscore}, You: ${humanscore}`;
+    li.appendChild(score);
+
+    lst.appendChild(li);
+}
+
 (async function playGame() {
     let compscore = 0;
     let humanscore = 0;
@@ -36,6 +56,7 @@ function getHumanChoice() {
 
         if (a === b) {
             console.log("It's a tie!");
+            display_result("tie", a, b, compscore, humanscore);
         } else if (
             (a === "rock" && b === "scissors") ||
             (a === "paper" && b === "rock") ||
@@ -43,9 +64,11 @@ function getHumanChoice() {
         ) {
             console.log("Computer wins this round!");
             compscore++;
+            display_result("comp", a, b, compscore, humanscore);
         } else {
             console.log("You win this round!");
             humanscore++;
+            display_result("human", a, b, compscore, humanscore);
         }
 
         console.log("Computer chose: " + a);
