@@ -3,6 +3,10 @@
 ## Overview
 This project is a simple implementation of the classic **Rock Paper Scissors** game. The game is played for 5 rounds, where the user competes against the computer. The user selects their choice by clicking one of the buttons (`Rock`, `Paper`, or `Scissors`), and the computer randomly generates its choice. The result of each round, along with the current scores, is displayed on the webpage.
 
+## Live Preview
+Click on this link to play the game:
+https://ashvinrlobo.github.io/javascript_rock_paper_scissors/
+
 ---
 
 ## Project Structure
